@@ -17,10 +17,10 @@ module.exports = {
 				'viewport': 'width=device-width, initial-scale=1',
 				'theme-color': '#4285f4',
 			},
-			base: { // 設置base標籤
-				href: "https://robohash.org", 
-				target: "_blank"
-			},
+			// base: { // 設置base標籤
+			// 	href: "https://robohash.org", 
+			// 	target: "_blank"
+			// },
 			filename: 'app.html', // 輸出文檔名
 			template: 'src/index.html', // 指定html模板的相對或絕對路徑
 			// 使用行內模板取代指定的html模板
@@ -28,12 +28,14 @@ module.exports = {
 				<!DOCTYPE html>
 				<html lang="en">
 					<head>
+						<meta charset="UTF-8">
+						<meta http-equiv="X-UA-Compatible" content="IE=edge">
 						<title>${htmlWebpackPlugin.options.title}</title>
 					</head>
 					<body>
 						<h1>${h1Text}</h1>
-						<a href="">robohash</a>
-						<img src="/set_set2/1?size=100x100" alt="robot" />
+						<a href="https://robohash.org">robohash</a>
+						<img src="https://robohash.org/set_set2/1?size=100x100" alt="robot" />
 					</body>
 				</html>
 			`,
@@ -41,8 +43,9 @@ module.exports = {
 				h1Text: 'Hello, welcome to the robot world!',
 			},
 			inject: 'head', // 在html裡面的哪個標籤生成script標籤
-			scriptLoading: 'module',
-			hash: true
+			scriptLoading: 'defer',
+			// hash: true,
+			// publicPath: './sources'
 		})
 	]
 }
